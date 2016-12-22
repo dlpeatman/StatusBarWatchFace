@@ -1,0 +1,5 @@
+<fonts>
+    <font id="agencyFB" filename="AgencyFB.fnt" antialias="false" />
+    <font id="agencyFBMedium" filename="AgencyFBMedium.fnt" antialias="false" />
+    <font id="agencyFBSmall" filename="AgencyFBSmall.fnt" antialias="false" />
+</fonts>
