@@ -1,0 +1,5 @@
+<settings>
+    <setting propertyKey="@Properties.Version" title="@Strings.Version">
+        <settingConfig type="alphaNumeric" readonly="true" />
+    </setting>
+</settings>

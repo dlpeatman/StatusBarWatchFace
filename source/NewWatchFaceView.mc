@@ -36,7 +36,6 @@ class NewWatchFaceView extends Ui.WatchFace {
         var view2 = View.findDrawableById("DateLabel");
         var dateString = Lang.format("$1$ $2$, $3$",[date.month, date.day, date.year]);
         view2.setText(dateString);
-        
 
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
