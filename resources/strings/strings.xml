@@ -1,4 +1,14 @@
 <strings>
     <string id="AppName">NewWatchFace</string>
     <string id="Version">Version</string>
+    
+    <!-- Strings used in settings -->
+    <string id="StatusBarSlot1">Status Bar Slot 1</string>
+    <string id="StatusBarSlot2">Status Bar Slot 2</string>
+    <string id="StatusBarSlot3">Status Bar Slot 3</string>
+    
+    <string id="StepCount">Step Count</string>
+    <string id="HeartRate">Heart Rate</string>
+    <string id="NotificationCount">Notification Count</string>
+    <string id="None">None</string>
 </strings>

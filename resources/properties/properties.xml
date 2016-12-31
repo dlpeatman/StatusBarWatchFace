@@ -1,3 +1,9 @@
 <properties>
     <property id="Version" type="string">0.1</property>
+    
+    <property id="EmptyStatusId" type="number">0</property>
+    
+    <property id="StatusBarSlot1" type="number">1</property>
+    <property id="StatusBarSlot2" type="number">2</property>
+    <property id="StatusBarSlot3" type="number">3</property>
 </properties>

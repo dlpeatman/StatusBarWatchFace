@@ -2,4 +2,31 @@
     <setting propertyKey="@Properties.Version" title="@Strings.Version">
         <settingConfig type="alphaNumeric" readonly="true" />
     </setting>
+    
+    <setting propertyKey="@Properties.StatusBarSlot1" title="@Strings.StatusBarSlot1">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.None</listEntry>
+            <listEntry value="1">@Strings.NotificationCount</listEntry>
+            <listEntry value="2">@Strings.HeartRate</listEntry>
+            <listEntry value="3">@Strings.StepCount</listEntry>
+        </settingConfig>
+    </setting>
+    
+    <setting propertyKey="@Properties.StatusBarSlot2" title="@Strings.StatusBarSlot2">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.None</listEntry>
+            <listEntry value="1">@Strings.NotificationCount</listEntry>
+            <listEntry value="2">@Strings.HeartRate</listEntry>
+            <listEntry value="3">@Strings.StepCount</listEntry>
+        </settingConfig>
+    </setting>
+    
+    <setting propertyKey="@Properties.StatusBarSlot3" title="@Strings.StatusBarSlot3">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.None</listEntry>
+            <listEntry value="1">@Strings.NotificationCount</listEntry>
+            <listEntry value="2">@Strings.HeartRate</listEntry>
+            <listEntry value="3">@Strings.StepCount</listEntry>
+        </settingConfig>
+    </setting>
 </settings>

@@ -17,28 +17,17 @@ class StatusBar extends Ui.Drawable {
     const boxPadding = 3;
     
     function draw(dc) {
-        var notificationCount = System.getDeviceSettings().notificationCount;
-        var phoneConnected = System.getDeviceSettings().phoneConnected;
-        var heartRate = ActivityMonitor.getHeartRateHistory(1, true).next().heartRate;
-        var stepCount = ActivityMonitor.getInfo().steps;
     
         // Draw the status bar background
         dc.setColor(Gfx.COLOR_DK_BLUE,Gfx.COLOR_DK_BLUE);
         dc.fillRectangle(0, dc.getHeight() - barHeight, dc.getWidth(), barHeight);
     
         var statusPairs = new [0];
-        if (notificationCount > 0) {
-            statusPairs.add([messageIcon, notificationCount.toString()]);
-        } else if (phoneConnected) {
-            statusPairs.add([bluetoothIcon, ""]);
-        }
         
-        if (heartRate > 0 && heartRate < 255) {
-            statusPairs.add([heartIcon, heartRate.toString()]);
-        } else {
-            statusPairs.add([heartIcon, "--"]);
+        for (var i=1; i<=3; i++) {
+	        var setting = Application.getApp().getProperty("StatusBarSlot" + i.toString());
+	        addSlot(statusPairs, setting);
         }
-        statusPairs.add([footprintIcon, stepCount.toString()]); 
         
         var totalWidth = 0;
         for (var i=0; i<statusPairs.size(); i++) {
@@ -49,6 +38,31 @@ class StatusBar extends Ui.Drawable {
         for (var i=0; i<statusPairs.size(); i++) {
             drawBox(dc, xPos, font, statusPairs[i]);
             xPos += calculateBoxWidth(dc, statusPairs[i], font) + boxBuffer;
+        }
+    }
+    
+    function addSlot(statusPairs, settingValue) {
+        var notificationCount = System.getDeviceSettings().notificationCount;
+        var phoneConnected = System.getDeviceSettings().phoneConnected;
+        var heartRate = ActivityMonitor.getHeartRateHistory(1, true).next().heartRate;
+        var stepCount = ActivityMonitor.getInfo().steps;
+        
+        if (settingValue == 0) {
+            return;
+        } else if (settingValue == 1) {
+            if (notificationCount > 0) {
+	            statusPairs.add([messageIcon, notificationCount.toString()]);
+	        } else if (phoneConnected) {
+	            statusPairs.add([bluetoothIcon, ""]);
+	        }
+        } else if (settingValue == 2) {
+            if (heartRate > 0 && heartRate < 255) {
+	            statusPairs.add([heartIcon, heartRate.toString()]);
+	        } else {
+	            statusPairs.add([heartIcon, "--"]);
+	        }
+        } else if (settingValue == 3) {
+            statusPairs.add([footprintIcon, stepCount.toString()]);
         }
     }
     
