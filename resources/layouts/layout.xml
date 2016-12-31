@@ -2,7 +2,5 @@
     <label id="TimeLabel" x="center" y="center" font="@Fonts.agencyFB" justification="Gfx.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
     <label id="DateLabel" x="center" y="32" font="@Fonts.agencyFBMedium" justification="Gfx.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
     <drawable id="BatteryBar" class="BatteryBar" />
-<!--     <drawable id="NotificationCount" class="NotificationCount" /> -->
-<!--     <drawable id="HeartRateDisplay" class="HeartRateDisplay" /> -->
     <drawable id="StatusBar" class="StatusBar" />
 </layout>
