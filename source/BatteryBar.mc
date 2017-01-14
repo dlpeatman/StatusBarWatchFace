@@ -4,8 +4,8 @@ using Toybox.WatchUi as Ui;
 
 class BatteryBar extends Ui.Drawable {
 
-    var barStartPos = 48;
-    var numSegments = 15;
+    var barStartPos = (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_RECTANGLE) ? 9 : 48;
+    var numSegments = (System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_RECTANGLE) ? 16 : 15;
     var segmentHeight = 15;
 
     // Percent thresholds for setting bar color
@@ -14,7 +14,7 @@ class BatteryBar extends Ui.Drawable {
     var greenThreshold = 50;
 
     function draw(dc) {
-        var batteryLevel = System.getSystemStats().battery * 100;
+        var batteryLevel = System.getSystemStats().battery;
 
         dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_BLACK);
         var startPolygon = [[0,0],
@@ -42,13 +42,14 @@ class BatteryBar extends Ui.Drawable {
             movePolygon(polygon, 8, 0);
         }
 
-        var endPolygon = [polygon[0],
-                [dc.getWidth(), 0],
-                [dc.getWidth(), segmentHeight],
-                polygon[4],
-                polygon[5]];
-        dc.fillPolygon(endPolygon);
-
+        if (batteryLevel >= 99) {
+            var endPolygon = [polygon[0],
+                    [dc.getWidth(), 0],
+                    [dc.getWidth(), segmentHeight],
+                    polygon[4],
+                    polygon[5]];
+            dc.fillPolygon(endPolygon);
+        }
     }
 
     function setBarColor(dc, percentFilled) {
